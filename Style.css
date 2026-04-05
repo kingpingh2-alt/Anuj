@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GreenDrive Pro</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
+<!-- CHART -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header>
+  <h2 class="logo">GreenDrive ⚡</h2>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="left">
+    <h1>Drive Smart.<br><span>Save More.</span></h1>
+    <p>Compare Petrol, Diesel & EV costs instantly.</p>
+    <a href="#calc" class="btn">Try Calculator ↓</a>
+  </div>
+
+  <div class="right">
+    <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a">
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section id="calc" class="calculator">
+
+  <h2>⚡ EV vs Petrol vs Diesel</h2>
+
+  <div class="card">
+    <input type="number" id="km" placeholder="Daily KM Driven">
+    <input type="number" id="petrol" placeholder="Petrol Price (₹/L)">
+    <input type="number" id="diesel" placeholder="Diesel Price (₹/L)">
+    <input type="number" id="electric" placeholder="Electricity Cost (₹/kWh)">
+    <input type="number" id="mileage" placeholder="Mileage (km/L)">
+
+    <button onclick="calculate()">Calculate</button>
+  </div>
+
+  <div class="result">
+    <p id="petrolRes"></p>
+    <p id="dieselRes"></p>
+    <p id="evRes"></p>
+    <h2 id="best"></h2>
+  </div>
+
+  <canvas id="chart"></canvas>
+
+  <div class="info">
+    <p>⚡ EV assumes ~6 km per unit</p>
+    <p>⛽ Fuel cost based on mileage</p>
+    <p>📅 Monthly = Daily × 30</p>
+  </div>
+
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
+[4/5, 6:23 PM] Anuj mahto: * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at 20% 30%, #0f172a, #020617);
+  color: white;
+}
+
+/* NAV */
+header {
+  padding: 20px 60px;
+}
+
+.logo {
+  color: #00ff88;
+}
+
+/* HERO */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 120px 80px;
+}
+
+.left h1 {
+  font-size: 50px;
+}
+
+.left span {
+  color: #00ff88;
+}
+
+.left p {
+  margin: 20px 0;
+  color: #aaa;
+}
+
+/* BUTTON */
+.btn {
+  padding: 12px 25px;
+  background: linear-gradient(90deg,#00ff88,#00c853);
+  color: black;
+  border-radius: 25px;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,255,136,0.4);
+}
+
+/* IMAGE */
+.right img {
+  width: 480px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0,255,136,0.2);
+}
+
+/* CALCULATOR */
+.calculator {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 20px;
+  display: inline-block;
+  box-shadow: 0 0 30px rgba(0,255,136,0.3);
+  transform: scale(1.05);
+}
+
+/* INPUT */
+input {
+  display: block;
+  margin: 12px auto;
+  padding: 12px;
+  width: 260px;
+  border-radius: 10px;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 10px #00ff88;
+}
+
+/* BUTTON */
+button {
+  margin-top: 15px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #00ff88;
+  cursor: pointer;
+}
+
+button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px #00ff88;
+}
+
+/* RESULT */
+.result {
+  margin-top: 30px;
+}
+
+.result h2 {
+  color: #00ff88;
+}
+
+/* INFO */
+.info {
+  margin-top: 30px;
+  color: #aaa;
+  font-size: 14px;
+}
